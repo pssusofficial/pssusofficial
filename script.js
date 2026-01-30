@@ -1,6 +1,6 @@
 /* ১. গিটহাব থেকে অটোমেটিক গ্যালারি লোড */
-const username = 'YOUR_GITHUB_USERNAME'; // আপনার গিটহাব ইউজারনেম
-const repo = 'YOUR_REPO_NAME';           // আপনার রিপোজিটরির নাম
+const username = 'pssusofficial'; // আপনার গিটহাব ইউজারনেম
+const repo = 'pssusofficial.github.io';           // আপনার রিপোজিটরির নাম
 const folderName = 'gallery';            // আপনার ফোল্ডারের নাম 'gallery'
 
 async function loadGallery() {
