@@ -74,11 +74,10 @@ header {
 
 .slide {
     width: 100%;
-    height: 500px;
-    object-fit: cover;
+    height: 450px; /* ল্যাপটপের জন্য */
+    object-fit: fill; /* ছবিকে পুরো ফ্রেমে টেনে বসাবে, কাটবে না */
     display: none;
 }
-
 .slider-btn {
     position: absolute;
     top: 50%;
@@ -125,14 +124,17 @@ header {
     .club-name { font-size: 2.2rem; }
     .slider-container, .slide { height: 300px; }
 }
-
-footer {
-    background: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 50px;
-                      }
+@media (max-width: 768px) {
+    .slide {
+        height: 250px; /* মোবাইলের জন্য উচ্চতা কমিয়ে আনলে ছবি চ্যাপ্টা লাগবে না */
+       footer {
+        background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 50px;
+ }
+        
 /* নেভিগেশন রিবন ও ড্রপ-ডাউন স্টাইল */
 .nav-ribbon {
     background-color: #1a5276;
@@ -228,5 +230,36 @@ footer {
 .gallery-item img:hover {
     transform: scale(1.05);
 }
+/* গ্যালারি গ্রিড সেটিংস */
+#photo-grid {
+    display: block; /* গ্রিড থেকে ব্লকে পরিবর্তন */
+    column-count: 3; /* ল্যাপটপে ৩টি কলাম */
+    column-gap: 15px;
+    padding: 20px 0;
+}
 
+.gallery-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: #fff;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto; /* উচ্চতা অটোমেটিক হবে, তাই কাটবে না */
+    display: block;
+    transition: 0.3s;
+}
+
+/* মোবাইলের জন্য কলাম সংখ্যা কমিয়ে ১ বা ২ করা */
+@media (max-width: 768px) {
+    #photo-grid {
+        column-count: 2; /* মোবাইলে ২ কলামে সুন্দর দেখাবে */
+    }
+}
+        
 
