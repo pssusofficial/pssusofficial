@@ -1,0 +1,135 @@
+/* ১. জেনারেল সেটিংস - সাদা অংশ দূর করার জন্য */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    font-family: 'Segoe UI', 'Hind Siliguri', sans-serif;
+}
+
+/* ২. হেডার ডিজাইন */
+header {
+    width: 100%;
+    background: linear-gradient(to right, #ffffff, #f0f7ff, #e3f2fd);
+    color: #1a5276;
+    padding: 40px 0;
+    border-bottom: 4px solid #1a5276;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-logo img {
+    width: 130px;
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid #1a5276;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-right: 30px;
+}
+
+.club-name {
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    margin-top: 8px;
+    color: #546e7a;
+    font-weight: 500;
+}
+
+/* ৩. স্লাইডার - ফুল স্ক্রিন ও ব্লিংকিং বন্ধ */
+.slider-section {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* ফুল উইডথ চাইলে এটি ১০০% থাকবে */
+    height: 500px;
+    margin: auto;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.slide {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: none;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    z-index: 10;
+}
+
+.btn-prev { left: 20px; }
+.btn-next { right: 20px; }
+
+/* ৪. কার্ড সেকশন */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.activities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* ৫. রেসপন্সিভ ডিজাইন (মোবাইল) */
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; text-align: center; }
+    .header-logo img { margin-right: 0; margin-bottom: 15px; width: 100px; }
+    .club-name { font-size: 2.2rem; }
+    .slider-container, .slide { height: 300px; }
+}
+
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+                      }
