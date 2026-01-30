@@ -133,3 +133,51 @@ footer {
     padding: 30px 0;
     margin-top: 50px;
                       }
+/*নেভিগেশন রিবন ডিজাইন */
+.nav-ribbon {
+    background-color: #1a5276; /* হেডারের থিম কালার */
+    width: 100%;
+    position: sticky; /* স্ক্রল করলেও উপরে আটকে থাকবে */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* ট্যাবগুলো মাঝখানে থাকবে */
+    list-style: none;
+    padding: 0;
+}
+
+.nav-container li {
+    padding: 0;
+}
+
+.nav-container li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-weight: 500;
+    transition: background 0.3s;
+    font-size: 1.1rem;
+}
+
+.nav-container li a:hover {
+    background-color: #e67e22; /* মাউস নিলে কমলা রঙ হবে */
+}
+
+/* মোবাইলের জন্য ট্যাব অ্যাডজাস্টমেন্ট */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap; /* মোবাইলে ট্যাবগুলো ভেঙে নিচে নিচে আসবে */
+    }
+    .nav-container li a {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
