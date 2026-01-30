@@ -1,265 +1,68 @@
-/* ১. জেনারেল সেটিংস - সাদা অংশ দূর করার জন্য */
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100%;
-    overflow-x: hidden;
+    margin: 0; padding: 0;
+    width: 100%; overflow-x: hidden;
     background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
     font-family: 'Segoe UI', 'Hind Siliguri', sans-serif;
 }
 
-/* ২. হেডার ডিজাইন */
+/* হেডার */
 header {
-    width: 100%;
     background: linear-gradient(to right, #ffffff, #f0f7ff, #e3f2fd);
-    color: #1a5276;
-    padding: 40px 0;
-    border-bottom: 4px solid #1a5276;
+    color: #1a5276; padding: 40px 0; border-bottom: 4px solid #1a5276;
 }
 
 .header-container {
-    display: flex;
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex; align-items: center; width: 90%; max-width: 1200px; margin: 0 auto;
 }
 
 .header-logo img {
-    width: 130px;
-    height: auto;
-    border-radius: 50%;
-    border: 4px solid #1a5276;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-right: 30px;
+    width: 130px; border-radius: 50%; border: 4px solid #1a5276; margin-right: 30px;
 }
 
-.club-name {
-    font-size: 4rem;
-    margin: 0;
-    font-weight: 800;
-    line-height: 1.1;
-}
+.club-name { font-size: 3.5rem; margin: 0; font-weight: 800; }
 
-.tagline {
-    font-size: 1.3rem;
-    margin-top: 8px;
-    color: #546e7a;
-    font-weight: 500;
-}
+/* রিবন ও ড্রপডাউন */
+.nav-ribbon { background-color: #1a5276; position: sticky; top: 0; z-index: 1000; }
+.nav-container { display: flex; list-style: none; padding: 0; max-width: 1200px; margin: 0 auto; }
+.nav-container li a { display: block; color: white; text-decoration: none; padding: 15px 20px; font-weight: 500; }
+.nav-container li a:hover { background-color: #e67e22; }
 
-/* ৩. স্লাইডার - ফুল স্ক্রিন ও ব্লিংকিং বন্ধ */
-.slider-section {
-    width: 100%;
-    text-align: center;
-    margin-top: 40px;
+.dropdown-menu {
+    display: none; position: absolute; background: white; min-width: 200px; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); list-style: none; padding: 0;
 }
+.dropdown-menu li a { color: #333; border-bottom: 1px solid #eee; }
+.dropdown-menu li a:hover { background: #f1f1f1; }
+.nav-container li:hover .dropdown-menu { display: block; }
 
+/* স্লাইডার - ছবি কাটবে না */
 .slider-container {
-    position: relative;
-    width: 100%;
-    max-width: 100%; /* ফুল উইডথ চাইলে এটি ১০০% থাকবে */
-    height: 500px;
-    margin: auto;
-    overflow: hidden;
-    background-color: #f0f0f0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative; width: 100%; height: 500px; background: #000; overflow: hidden;
 }
+.slide { width: 100%; height: 100%; object-fit: contain; display: none; }
+.slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 15px; cursor: pointer; border-radius: 50%; z-index: 10; }
+.btn-prev { left: 20px; } .btn-next { right: 20px; }
 
-.slide {
-    width: 100%;
-    height: 450px; /* ল্যাপটপের জন্য */
-    object-fit: fill; /* ছবিকে পুরো ফ্রেমে টেনে বসাবে, কাটবে না */
-    display: none;
-}
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 18px;
-    z-index: 10;
-}
+/* গ্যালারি পেজ (Masonry Layout) */
+#photo-grid { column-count: 3; column-gap: 15px; padding: 20px 0; }
+.gallery-item { display: inline-block; width: 100%; margin-bottom: 15px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #fff; }
+.gallery-item img { width: 100%; height: auto; display: block; transition: 0.3s; }
 
-.btn-prev { left: 20px; }
-.btn-next { right: 20px; }
+/* কন্ট্যাক্ট বক্স */
+.contact-box { background: white; border: 2px solid #1a5276; border-radius: 15px; display: flex; flex-wrap: wrap; padding: 30px; margin-top: 30px; gap: 20px; }
+.contact-item { flex: 1; min-width: 250px; text-align: left; }
 
-/* ৪. কার্ড সেকশন */
-.container {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
+footer { background: #2c3e50; color: white; text-align: center; padding: 30px 0; margin-top: 50px; }
 
-.activities {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    text-align: center;
-}
-
-/* ৫. রেসপন্সিভ ডিজাইন (মোবাইল) */
+/* মোবাইল রেসপন্সিভ */
 @media (max-width: 768px) {
     .header-container { flex-direction: column; text-align: center; }
-    .header-logo img { margin-right: 0; margin-bottom: 15px; width: 100px; }
-    .club-name { font-size: 2.2rem; }
-    .slider-container, .slide { height: 300px; }
-}
-@media (max-width: 768px) {
-    .slide {
-        height: 250px; /* মোবাইলের জন্য উচ্চতা কমিয়ে আনলে ছবি চ্যাপ্টা লাগবে না */
-       footer {
-        background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 30px 0;
-      margin-top: 50px;
- }
-        
-/* নেভিগেশন রিবন ও ড্রপ-ডাউন স্টাইল */
-.nav-ribbon {
-    background-color: #1a5276;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    list-style: none;
-    padding: 0;
-}
-
-.nav-container li {
-    position: relative; /* ড্রপ-ডাউন পজিশন ঠিক রাখার জন্য */
-}
-
-.nav-container li a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 15px 25px;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.nav-container li a:hover {
-    background-color: #e67e22;
-}
-
-/* ড্রপ-ডাউন মেনু (লুকানো থাকবে) */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    list-style: none;
-    padding: 0;
-    top: 100%; /* মেনুর ঠিক নিচে দেখাবে */
-    left: 0;
-}
-
-.dropdown-menu li a {
-    color: #333;
-    padding: 12px 20px;
-    border-bottom: 1px solid #eee;
-}
-
-.dropdown-menu li a:hover {
-    background-color: #f1f1f1;
-    color: #1a5276;
-}
-
-/* মাউস নিলে ড্রপ-ডাউন দেখাবে */
-.nav-container li:hover .dropdown-menu {
-    display: block;
-}
-
-/* মোবাইলের জন্য রেসপন্সিভ */
-@media (max-width: 768px) {
+    .header-logo img { margin-right: 0; margin-bottom: 15px; }
+    .club-name { font-size: 2rem; }
+    .slider-container { height: 300px; }
     .nav-container { flex-wrap: wrap; justify-content: center; }
-    .nav-container li a { padding: 10px 15px; font-size: 0.9rem; }
     .dropdown-menu { position: static; width: 100%; }
+    #photo-grid { column-count: 2; }
 }
-
-/* গ্যালারি আইটেম স্টাইল */
-.gallery-item {
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 300px; /* একটি নির্দিষ্ট উচ্চতা রাখলাম যেন গ্রিড সুন্দর দেখায় */
-    background: #e9ecef; /* ছবি লোড হওয়ার আগে হালকা কালার দেখাবে */
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    /* object-fit: cover; <-- এটি কেটে দিন বা পরিবর্তন করুন */
-    object-fit: contain; /* এর ফলে পুরো ছবি দেখা যাবে, কাটবে না */
-    padding: 5px; /* ছবির চারপাশে সামান্য জায়গা থাকবে */
-    transition: transform 0.3s ease;
-}
-
-.gallery-item img:hover {
-    transform: scale(1.05);
-}
-/* গ্যালারি গ্রিড সেটিংস */
-#photo-grid {
-    display: block; /* গ্রিড থেকে ব্লকে পরিবর্তন */
-    column-count: 3; /* ল্যাপটপে ৩টি কলাম */
-    column-gap: 15px;
-    padding: 20px 0;
-}
-
-.gallery-item {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background: #fff;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto; /* উচ্চতা অটোমেটিক হবে, তাই কাটবে না */
-    display: block;
-    transition: 0.3s;
-}
-
-/* মোবাইলের জন্য কলাম সংখ্যা কমিয়ে ১ বা ২ করা */
-@media (max-width: 768px) {
-    #photo-grid {
-        column-count: 2; /* মোবাইলে ২ কলামে সুন্দর দেখাবে */
-    }
-}
-        
-
