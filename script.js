@@ -1,72 +1,49 @@
-/* ১. গিটহাব থেকে অটোমেটিক গ্যালারি লোড */
-const username = 'pssusofficial'; // আপনার গিটহাব ইউজারনেম
-const repo = 'pssusofficial.github.io';           // আপনার রিপোজিটরির নাম
-const folderName = 'gallery';            // আপনার ফোল্ডারের নাম 'gallery'
+const username = 'pssusofficial'; 
+const repo = 'pssusofficial.github.io';
+const folder = 'gallery';
 
+// গ্যালারি লোড (শুধুমাত্র gallery.html এর জন্য)
 async function loadGallery() {
-    const photoGrid = document.getElementById('photo-grid');
-    if (!photoGrid) return; 
+    const grid = document.getElementById('photo-grid');
+    if (!grid) return;
 
-    const url = `https://api.github.com/repos/${username}/${repo}/contents/${folderName}`;
-    
     try {
-        const response = await fetch(url);
-        const files = await response.json();
-
-        // পুরোনো ছবি থাকলে তা মুছে নতুন করে লোড করবে
-        photoGrid.innerHTML = '';
+        const res = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${folder}`);
+        const files = await res.json();
+        grid.innerHTML = '';
 
         files.forEach(file => {
-            // শুধু ছবি ফাইলগুলো বাছাই করবে
             if (file.name.match(/\.(jpe?g|png|gif|webp)$/i)) {
-                const imgHTML = `
+                grid.innerHTML += `
                     <div class="gallery-item">
-                        <img src="${file.download_url}" alt="Club Activity">
-                    </div>
-                `;
-                photoGrid.innerHTML += imgHTML;
+                        <img src="${file.download_url}" alt="PSSUS" loading="lazy">
+                    </div>`;
             }
         });
-    } catch (error) {
-        console.error("ছবি লোড হতে সমস্যা হয়েছে:", error);
-        photoGrid.innerHTML = '<p style="text-align:center">গ্যালারি লোড করা সম্ভব হয়নি।</p>';
+    } catch (e) {
+        grid.innerHTML = '<p>ছবি লোড করা যাচ্ছে না।</p>';
     }
 }
 
-/* ২. স্লাইডার কন্ট্রোল (যা আপনার ইনডেক্স ফাইলে স্লাইডার দেখাবে) */
+// স্লাইডার কন্ট্রোল (শুধুমাত্র index.html এর জন্য)
 let slideIndex = 1;
-
 function showSlides(n) {
     const slides = document.getElementsByClassName("slide");
     if (slides.length === 0) return;
-    
     if (n > slides.length) slideIndex = 1;
     if (n < 1) slideIndex = slides.length;
-    
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    slides[slideIndex-1].style.display = "block";  
+    for (let s of slides) s.style.display = "none";
+    slides[slideIndex-1].style.display = "block";
 }
 
-function changeSlide(n) {
-    showSlides(slideIndex += n);
-}
+function changeSlide(n) { showSlides(slideIndex += n); }
 
-/* ৩. উইন্ডো লোড হওয়ার সাথে সাথে স্মার্ট চেক */
-window.onload = () => {
-    // যদি পেজে গ্যালারি গ্রিড থাকে (গ্যালারি পেজের জন্য)
-    if (document.getElementById('photo-grid')) {
-        loadGallery();
-    }
-    
-    // যদি পেজে স্লাইডার স্লাইড থাকে (হোম পেজের জন্য)
-    if (document.getElementsByClassName("slide").length > 0) {
+// অটো রান
+window.addEventListener('DOMContentLoaded', () => {
+    loadGallery();
+    const slides = document.getElementsByClassName("slide");
+    if (slides.length > 0) {
         showSlides(slideIndex);
-        
-        // অটো স্লাইড ৫ সেকেন্ড পর পর
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
+        setInterval(() => changeSlide(1), 5000);
     }
-};
+});
