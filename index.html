@@ -91,38 +91,6 @@
     <footer>
         <p>&copy; 2026 পল্লীশ্রী সমাজ উন্নয়ন সংঘ | সর্বস্বত্ব সংরক্ষিত</p>
     </footer>
-
-    <script>
-        let slideIndex = 1;
-        const slides = document.getElementsByClassName("slide");
-        let timer;
-
-        function showSlides(n) {
-            if (n > slides.length) {slideIndex = 1}    
-            if (n < 1) {slideIndex = slides.length}
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            slides[slideIndex-1].style.display = "block";  
-        }
-
-        function autoSlide() {
-            slideIndex++;
-            showSlides(slideIndex);
-            timer = setTimeout(autoSlide, 3000);
-        }
-
-        function changeSlide(n) {
-            clearTimeout(timer);
-            showSlides(slideIndex += n);
-            timer = setTimeout(autoSlide, 3000);
-        }
-
-        autoSlide();
-    </script>
-
-
-    <script src="script.js"></script>
     
 </body>
 </html>
