@@ -157,51 +157,21 @@
 
 
     
-
-   <div class="container" style="margin-top: 50px; text-align: center;">
+<div class="container" style="margin-top: 50px; text-align: center;">
     <h2 style="color: #1a5276;">গ্যালারি ও কিছু স্মৃতি</h2>
     
     <div style="position: relative; max-width: 800px; margin: auto; overflow: hidden; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
         <div class="slider" style="background-color: #f0f0f0; border-radius: 10px;">
-            <img src="images/pic1.jpeg" class="slide" style="display: block;">
-            <img src="images/pic2.jpeg" class="slide">
-            <img src="images/pic3.jpeg" class="slide">
-            <img src="images/pic4.jpeg" class="slide">
+            <img src="images/pic1.jpeg" class="slide" style="display: block; width: 100%; height: 450px; object-fit: cover;">
+            <img src="images/pic2.jpeg" class="slide" style="display: none; width: 100%; height: 450px; object-fit: cover;">
+            <img src="images/pic3.jpeg" class="slide" style="display: none; width: 100%; height: 450px; object-fit: cover;">
+            <img src="images/pic4.jpeg" class="slide" style="display: none; width: 100%; height: 450px; object-fit: cover;">
         </div>
-
 
         <button onclick="changeSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%;">❮</button>
         <button onclick="changeSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%;">❯</button>
     </div>
 </div>
-
-<script>
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-
-    function showSlides() {
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-        slides[slideIndex-1].style.display = "block";  
-        setTimeout(showSlides, 3000); // প্রতি ৩ সেকেন্ড অন্তর ছবি বদলাবে
-    }
-
-    function changeSlide(n) {
-        slideIndex += n - 1;
-        if (slideIndex < 0) slideIndex = slides.length - 1;
-        if (slideIndex >= slides.length) slideIndex = 0;
-        
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slides[slideIndex].style.display = "block";
-    }
-
-    showSlides(); // অটো স্লাইড শুরু করার জন্য
-</script>
 
         
         
