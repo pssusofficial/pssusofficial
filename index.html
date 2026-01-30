@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>পল্লীশ্রী সমাজ উন্নয়ন সংঘ</title>
-    
     <link rel="stylesheet" href="style.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,40 +14,35 @@
             <div class="header-logo">
                 <img src="logo.jpg" alt="লোগো">
             </div>
-            <div>
+            <div class="header-text">
                 <h1 class="club-name">পল্লীশ্রী সমাজ উন্নয়ন সংঘ</h1>
                 <p class="tagline">— একতাই বল, সেবাই ধর্ম —</p>
             </div>
         </div>
     </header>
 
-
     <nav class="nav-ribbon">
-    <ul class="nav-container">
-        <li><a href="#">মূলপাতা</a></li>
-        <li><a href="#about">আমাদের সম্পর্কে</a></li>
-        
-        <li>
-            <a href="#members">সদস্যবৃন্দ ▾</a>
-            <ul class="dropdown-menu">
-                <li><a href="#executive">কার্যনির্বাহী কমিটি</a></li>
-                <li><a href="#general">সাধারণ সদস্য</a></li>
-                <li><a href="#advisory">উপদেষ্টা মণ্ডলী</a></li>
-            </ul>
-        </li>
-
-        <li><a href="gallery.html">গ্যালারি</a></li>
-    </li>
-        <li><a href="#activities">কার্যক্রম</a></li>
-        <li><a href="#contact">যোগাযোগ</a></li>
-    </ul>
+        <ul class="nav-container">
+            <li><a href="index.html">মূলপাতা</a></li>
+            <li><a href="#about">আমাদের সম্পর্কে</a></li>
+            <li class="dropdown">
+                <a href="#members">সদস্যবৃন্দ ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#executive">কার্যনির্বাহী কমিটি</a></li>
+                    <li><a href="#general">সাধারণ সদস্য</a></li>
+                    <li><a href="#advisory">উপদেষ্টা মণ্ডলী</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html">গ্যালারি</a></li>
+            <li><a href="#activities">কার্যক্রম</a></li>
+            <li><a href="#contact">যোগাযোগ</a></li>
+        </ul>
     </nav>
-    
 
     <div class="slider-section">
-        <h2 style="color: #1a5276;">গ্যালারি ও কিছু স্মৃতি</h2>
+        <h2 style="color: #1a5276; margin-bottom: 20px;">গ্যালারি ও কিছু স্মৃতি</h2>
         <div class="slider-container">
-            <img src="images/pic1.jpeg" class="slide" style="display: block;">
+            <img src="images/pic1.jpeg" class="slide">
             <img src="images/pic2.jpeg" class="slide">
             <img src="images/pic3.jpeg" class="slide">
             <img src="images/pic4.jpeg" class="slide">
@@ -59,7 +52,7 @@
         </div>
     </div>
 
-    <div class="content-padding">
+    <div class="container">
         <div class="activities">
             <div class="card">
                 <h3>🤝 সামাজিক কাজকর্ম</h3>
@@ -75,13 +68,13 @@
             </div>
         </div>
 
-        <div style="margin-top: 60px;">
-            <h2 style="text-align: center; color: #1a5276; border-bottom: 2px solid #1a5276; display: inline-block; padding-bottom: 10px;">আমাদের সাথে যোগাযোগ করুন</h2>
-            <div style="background-color: #ffffff; border: 2px solid #1a5276; border-radius: 15px; display: flex; flex-wrap: wrap; justify-content: space-around; padding: 30px; margin-top: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <div style="flex: 1; min-width: 250px; margin: 10px;">
+        <div id="contact" style="margin-top: 60px; text-align: center;">
+            <h2 style="color: #1a5276; border-bottom: 2px solid #1a5276; display: inline-block; padding-bottom: 10px;">আমাদের সাথে যোগাযোগ করুন</h2>
+            <div class="contact-box">
+                <div class="contact-item">
                     <p><strong>📍 ঠিকানা:</strong><br>জংলীবাড়ি, ধুপগুড়ি, জলপাইগুড়ি</p>
                 </div>
-                <div style="flex: 1; min-width: 250px; margin: 10px;">
+                <div class="contact-item">
                     <p><strong>📞 ফোন:</strong><br>+91 0000000000</p>
                     <p><strong>✉️ ইমেল:</strong><br>pollisreesomaj@gmail.com</p>
                 </div>
@@ -94,6 +87,5 @@
     </footer>
 
     <script src="script.js"></script>
-    
 </body>
 </html>
