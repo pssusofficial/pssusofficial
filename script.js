@@ -53,13 +53,20 @@ function changeSlide(n) {
     showSlides(slideIndex += n);
 }
 
-// ৩. উইন্ডো লোড হওয়ার সাথে সাথে সব চালু করা
+/* ৩. উইন্ডো লোড হওয়ার সাথে সাথে স্মার্ট চেক */
 window.onload = () => {
-    loadGallery(); // অটো গ্যালারি
-    showSlides(slideIndex); // স্লাইডার
+    // যদি পেজে গ্যালারি গ্রিড থাকে (গ্যালারি পেজের জন্য)
+    if (document.getElementById('photo-grid')) {
+        loadGallery();
+    }
     
-    // অটো স্লাইড ৫ সেকেন্ড পর পর
-    setInterval(() => {
-        changeSlide(1);
-    }, 5000);
+    // যদি পেজে স্লাইডার স্লাইড থাকে (হোম পেজের জন্য)
+    if (document.getElementsByClassName("slide").length > 0) {
+        showSlides(slideIndex);
+        
+        // অটো স্লাইড ৫ সেকেন্ড পর পর
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    }
 };
