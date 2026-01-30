@@ -38,7 +38,7 @@
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
-        }
+         }
 
         /* হেডার ও নেভিগেশন */
         header {
@@ -58,6 +58,23 @@
             margin-top: 10px;
             opacity: 0.9;
         }
+
+        /* স্লাইডারের সব ছবিকে একই মাপে বাঁধার জন্য */
+        .slide {
+            width: 100%;
+            height: 450px; /* এটি আপনার সাইটের স্ক্রিনকে স্থির রাখবে */
+            object-fit: cover; /* ছবি ফেটে যাবে না বা চ্যাপ্টা হবে না */
+            display: none;
+            border-radius: 10px;
+        }
+
+        /* মোবাইল ফোনে স্লাইডারের উচ্চতা একটু কমিয়ে দেওয়ার জন্য */
+        @media (max-width: 768px) {
+        .slide {
+            height: 250px;
+         }
+        }
+        
 
         /* মেইন কন্টেইনার */
         .container {
@@ -145,12 +162,13 @@
     <h2 style="color: #1a5276;">গ্যালারি ও কিছু স্মৃতি</h2>
     
     <div style="position: relative; max-width: 800px; margin: auto; overflow: hidden; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-        <div class="slider">
-            <img src="images/pic1.jpeg" class="slide" style="width: 100%; display: block;">
-            <img src="images/pic2.jpeg" class="slide" style="width: 100%; display: none;">
-            <img src="images/pic3.jpeg" class="slide" style="width: 100%; display: none;">
-            <img src="images/pic4.jpeg" class="slide" style="width: 100%; display: none;">
+        <div class="slider" style="background-color: #f0f0f0; border-radius: 10px;">
+            <img src="images/pic1.jpg" class="slide" style="display: block;">
+            <img src="images/pic2.jpg" class="slide">
+            <img src="images/pic3.jpg" class="slide">
+            <img src="images/pic4.jpg" class="slide">
         </div>
+
 
         <button onclick="changeSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%;">❮</button>
         <button onclick="changeSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%;">❯</button>
