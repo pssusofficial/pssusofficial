@@ -133,27 +133,25 @@ footer {
     padding: 30px 0;
     margin-top: 50px;
                       }
-/*নেভিগেশন রিবন ডিজাইন */
+/* নেভিগেশন রিবন ও ড্রপ-ডাউন স্টাইল */
 .nav-ribbon {
-    background-color: #1a5276; /* হেডারের থিম কালার */
+    background-color: #1a5276;
     width: 100%;
-    position: sticky; /* স্ক্রল করলেও উপরে আটকে থাকবে */
+    position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: center; /* ট্যাবগুলো মাঝখানে থাকবে */
     list-style: none;
     padding: 0;
 }
 
 .nav-container li {
-    padding: 0;
+    position: relative; /* ড্রপ-ডাউন পজিশন ঠিক রাখার জন্য */
 }
 
 .nav-container li a {
@@ -162,22 +160,46 @@ footer {
     text-decoration: none;
     padding: 15px 25px;
     font-weight: 500;
-    transition: background 0.3s;
-    font-size: 1.1rem;
+    transition: 0.3s;
 }
 
 .nav-container li a:hover {
-    background-color: #e67e22; /* মাউস নিলে কমলা রঙ হবে */
+    background-color: #e67e22;
 }
 
-/* মোবাইলের জন্য ট্যাব অ্যাডজাস্টমেন্ট */
+/* ড্রপ-ডাউন মেনু (লুকানো থাকবে) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    list-style: none;
+    padding: 0;
+    top: 100%; /* মেনুর ঠিক নিচে দেখাবে */
+    left: 0;
+}
+
+.dropdown-menu li a {
+    color: #333;
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f1f1f1;
+    color: #1a5276;
+}
+
+/* মাউস নিলে ড্রপ-ডাউন দেখাবে */
+.nav-container li:hover .dropdown-menu {
+    display: block;
+}
+
+/* মোবাইলের জন্য রেসপন্সিভ */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-wrap: wrap; /* মোবাইলে ট্যাবগুলো ভেঙে নিচে নিচে আসবে */
-    }
-    .nav-container li a {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
+    .nav-container { flex-wrap: wrap; justify-content: center; }
+    .nav-container li a { padding: 10px 15px; font-size: 0.9rem; }
+    .dropdown-menu { position: static; width: 100%; }
 }
 
