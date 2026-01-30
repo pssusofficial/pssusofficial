@@ -2,85 +2,102 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>পল্লীশ্রী সমাজ উন্নয়ন সংঘ</title>
    
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700;800&display=swap" rel="stylesheet">
         
     <style>
-        /* ১. সাদা অংশ দূর করার জন্য সবচেয়ে জরুরি অংশ */
-        * {
-            box-sizing: border-box;
-        }
-
+        /* পুরো স্ক্রিন জুরে দেখানোর মূল সেটিং */
+        * { box-sizing: border-box; }
+        
         body, html {
             margin: 0 !important;
             padding: 0 !important;
             width: 100%;
             height: 100%;
-            overflow-x: hidden; /* ডানে-বামে স্ক্রল বন্ধ করবে */
-            background-color: #f9f9f9;
+            overflow-x: hidden;
+            background-color: #f0f2f5;
             font-family: 'Hind Siliguri', sans-serif;
         }
 
-        /* ২. হেডার - ফুল উইডথ */
+        /* হেডার ফুল উইডথ */
         header {
             width: 100%;
             background: linear-gradient(to right, #ffffff, #f0f7ff, #e3f2fd);
-            padding: 40px 0;
+            padding: 30px 15px;
             border-bottom: 4px solid #1a5276;
-            margin: 0;
         }
 
         .header-container {
             display: flex;
             align-items: center;
-            width: 90%;
-            max-width: 1400px;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* ৩. স্লাইডার - ফুল উইডথ (কোনো গ্যাপ থাকবে না) */
+        .header-logo img {
+            width: 80px; /* মোবাইলের জন্য ছোট করা হয়েছে */
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid #1a5276;
+            margin-right: 15px;
+        }
+
+        .club-name {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #1a5276;
+            line-height: 1.2;
+        }
+
+        /* স্লাইডার একদম স্ক্রিন জুরে */
         .slider-section {
             width: 100%;
             margin: 0;
             padding: 0;
-            line-height: 0; /* ছবির নিচের গ্যাপ দূর করতে */
+            background: #fff;
         }
 
         #slider-container {
             position: relative;
             width: 100%;
-            height: 550px; /* ল্যাপটপে উচ্চতা */
-            background: #f0f0f0;
+            height: 300px; /* মোবাইলের জন্য পারফেক্ট */
             overflow: hidden;
+            background: #ddd;
         }
 
         .slide {
             width: 100%;
-            height: 550px;
+            height: 100%;
             object-fit: cover;
             display: none;
         }
 
-        /* ৪. কন্টেন্ট এরিয়া */
+        /* কার্ড সেকশন */
         .content-area {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
         .activities {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: 1fr; /* মোবাইলে একটি করে কার্ড */
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .activities { grid-template-columns: repeat(3, 1fr); }
+            #slider-container { height: 500px; }
+            .header-logo img { width: 120px; }
+            .club-name { font-size: 3rem; }
         }
 
         .card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             text-align: center;
         }
 
@@ -88,16 +105,9 @@
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 40px 0;
+            padding: 25px;
             width: 100%;
-            margin-top: 50px;
-        }
-
-        /* মোবাইলের জন্য রেসপন্সিভ */
-        @media (max-width: 768px) {
-            .header-container { flex-direction: column; text-align: center; }
-            .club-name { font-size: 2.2rem !important; }
-            #slider-container, .slide { height: 300px !important; }
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -105,28 +115,34 @@
 
     <header>
       <div class="header-container">
-          <img src="logo.jpg" alt="লোগো" style="width: 130px; border-radius: 50%; border: 4px solid #1a5276; margin-right: 30px;">
+          <div class="header-logo">
+              <img src="logo.jpg" alt="Logo">
+          </div>
           <div>
-              <h1 class="club-name" style="font-size: 3.5rem; margin: 0; font-weight: 800; color: #1a5276;">পল্লীশ্রী সমাজ উন্নয়ন সংঘ</h1>
-              <p style="font-size: 1.3rem; color: #546e7a;">— একতাই বল, সেবাই ধর্ম —</p>
+              <h1 class="club-name">পল্লীশ্রী সমাজ উন্নয়ন সংঘ</h1>
+              <p style="margin: 5px 0 0; color: #546e7a; font-size: 1rem;">— একতাই বল, সেবাই ধর্ম —</p>
           </div>
       </div>
     </header>
 
     <div class="slider-section">
-        <h2 style="text-align: center; color: #1a5276; padding: 30px 0; margin: 0; line-height: 1.6;">গ্যালারি ও কিছু স্মৃতি</h2>
+        <h3 style="text-align: center; color: #1a5276; padding: 15px 0; margin: 0; font-size: 1.2rem;">গ্যালারি ও কিছু স্মৃতি</h3>
         <div id="slider-container">
-            <div id="slides-wrapper"></div>
-            <button onclick="changeSlide(-1)" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 15px; cursor: pointer; border-radius: 50%; z-index: 10;">❮</button>
-            <button onclick="changeSlide(1)" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 15px; cursor: pointer; border-radius: 50%; z-index: 10;">❯</button>
+            <img src="images/pic1.jpeg" class="slide" style="display: block;">
+            <img src="images/pic2.jpeg" class="slide">
+            <img src="images/pic3.jpeg" class="slide">
+            <img src="images/pic4.jpeg" class="slide">
+            
+            <button onclick="changeSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: none; padding: 10px; border-radius: 50%; z-index: 5;">❮</button>
+            <button onclick="changeSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: none; padding: 10px; border-radius: 50%; z-index: 5;">❯</button>
         </div>
     </div>
 
     <div class="content-area">
         <div class="activities">
             <div class="card">
-                <h3>🤝 সামাজিক কাজকর্ম</h3>
-                <p>আমরা অসহায় মানুষের পাশে দাঁড়াই এবং এলাকার উন্নয়নমূলক কাজ করি।</p>
+                <h3>🤝 সামাজিক কাজ</h3>
+                <p>আমরা অসহায় মানুষের পাশে দাঁড়াই এবং এলাকার উন্নয়ন করি।</p>
             </div>
             <div class="card">
                 <h3>⚽ খেলাধুলা</h3>
@@ -144,43 +160,32 @@
     </footer>
 
     <script>
-        // এখানে ছবির লিস্ট দিন
-        const imageList = ['pic1.jpeg', 'pic2.jpeg', 'pic3.jpeg', 'pic4.jpeg'];
-        const folderPath = 'images/';
         let slideIndex = 0;
-        let timer;
+        const slides = document.getElementsByClassName("slide");
 
-        function loadSlides() {
-            const wrapper = document.getElementById('slides-wrapper');
-            wrapper.innerHTML = imageList.map((img, index) => `
-                <img src="${folderPath}${img}" class="slide" style="display: ${index === 0 ? 'block' : 'none'};">
-            `).join('');
-            startAutoSlide();
-        }
-
-        function showSlides(n) {
-            const slides = document.getElementsByClassName("slide");
-            if (n >= slides.length) slideIndex = 0;
-            if (n < 0) slideIndex = slides.length - 1;
-            for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
-            slides[slideIndex].style.display = "block";
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 3000);
         }
 
         function changeSlide(n) {
-            clearInterval(timer);
-            slideIndex += n;
-            showSlides(slideIndex);
-            startAutoSlide();
+            slideIndex += n - 1;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
         }
 
-        function startAutoSlide() {
-            timer = setInterval(() => {
-                slideIndex++;
-                showSlides(slideIndex);
-            }, 3000);
-        }
-
-        loadSlides();
+        // ছবি যদি গিটহাবে থেকে থাকে তবে এটি কাজ করবে
+        showSlides();
     </script>
 </body>
 </html>
