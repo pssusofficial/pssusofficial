@@ -8,106 +8,106 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700;800&display=swap" rel="stylesheet">
         
     <style>
-        /* পুরো স্ক্রিন জুরে দেখানোর মূল সেটিং */
-        * { box-sizing: border-box; }
-        
-        body, html {
+        /* ১. বডির সব মার্জিন ও প্যাডিং জিরো করা যাতে ফুল স্ক্রিন পায় */
+        html, body {
             margin: 0 !important;
             padding: 0 !important;
             width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-            background-color: #f0f2f5;
+            overflow-x: hidden; /* ডানে বামে নড়াচড়া বন্ধ করতে */
+            background-color: #f4f7f6;
             font-family: 'Hind Siliguri', sans-serif;
         }
 
-        /* হেডার ফুল উইডথ */
+        * { box-sizing: border-box; }
+
+        /* ২. হেডার - ফুল উইডথ */
         header {
             width: 100%;
             background: linear-gradient(to right, #ffffff, #f0f7ff, #e3f2fd);
-            padding: 30px 15px;
-            border-bottom: 4px solid #1a5276;
+            padding: 20px 10px;
+            border-bottom: 3px solid #1a5276;
         }
 
         .header-container {
             display: flex;
             align-items: center;
             width: 100%;
-            max-width: 1200px;
             margin: 0 auto;
         }
 
         .header-logo img {
-            width: 80px; /* মোবাইলের জন্য ছোট করা হয়েছে */
+            width: 65px; /* মোবাইলে লোগো সাইজ */
             height: auto;
             border-radius: 50%;
-            border: 3px solid #1a5276;
-            margin-right: 15px;
+            border: 2px solid #1a5276;
+            margin-right: 12px;
         }
 
         .club-name {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin: 0;
             color: #1a5276;
-            line-height: 1.2;
+            font-weight: 800;
         }
 
-        /* স্লাইডার একদম স্ক্রিন জুরে */
+        /* ৩. স্লাইডার - একদম এক প্রান্ত থেকে অন্য প্রান্ত */
         .slider-section {
             width: 100%;
             margin: 0;
             padding: 0;
-            background: #fff;
         }
 
         #slider-container {
             position: relative;
-            width: 100%;
-            height: 300px; /* মোবাইলের জন্য পারফেক্ট */
+            width: 100vw; /* Viewport Width - পুরো স্ক্রিন */
+            height: 250px; /* মোবাইলের জন্য উচ্চতা */
             overflow: hidden;
-            background: #ddd;
+            background: #eee;
         }
 
         .slide {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* ছবিকে ফ্রেম অনুযায়ী অ্যাডজাস্ট করবে */
             display: none;
         }
 
-        /* কার্ড সেকশন */
+        /* ৪. কার্ড সেকশন - ফুল উইডথ ফ্লেক্সিবিলিটি */
         .content-area {
-            padding: 20px;
+            width: 100%;
+            padding: 15px;
         }
 
         .activities {
             display: grid;
-            grid-template-columns: 1fr; /* মোবাইলে একটি করে কার্ড */
+            grid-template-columns: 1fr; /* মোবাইলে এক লাইনে একটি কার্ড */
             gap: 15px;
-        }
-
-        @media (min-width: 768px) {
-            .activities { grid-template-columns: repeat(3, 1fr); }
-            #slider-container { height: 500px; }
-            .header-logo img { width: 120px; }
-            .club-name { font-size: 3rem; }
         }
 
         .card {
             background: white;
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             text-align: center;
+        }
+
+        /* ল্যাপটপ বা বড় স্ক্রিনের জন্য অ্যাডজাস্টমেন্ট */
+        @media (min-width: 768px) {
+            .header-container { width: 90%; max-width: 1200px; }
+            #slider-container { height: 500px; }
+            .activities { grid-template-columns: repeat(3, 1fr); }
+            .club-name { font-size: 3rem; }
+            .header-logo img { width: 120px; }
         }
 
         footer {
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 25px;
+            padding: 20px;
             width: 100%;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
     </style>
 </head>
@@ -120,37 +120,37 @@
           </div>
           <div>
               <h1 class="club-name">পল্লীশ্রী সমাজ উন্নয়ন সংঘ</h1>
-              <p style="margin: 5px 0 0; color: #546e7a; font-size: 1rem;">— একতাই বল, সেবাই ধর্ম —</p>
+              <p style="margin: 3px 0 0; color: #546e7a; font-size: 0.9rem;">— একতাই বল, সেবাই ধর্ম —</p>
           </div>
       </div>
     </header>
 
     <div class="slider-section">
-        <h3 style="text-align: center; color: #1a5276; padding: 15px 0; margin: 0; font-size: 1.2rem;">গ্যালারি ও কিছু স্মৃতি</h3>
+        <p style="text-align: center; color: #1a5276; font-weight: bold; margin: 15px 0;">গ্যালারি ও কিছু স্মৃতি</p>
         <div id="slider-container">
             <img src="images/pic1.jpeg" class="slide" style="display: block;">
             <img src="images/pic2.jpeg" class="slide">
             <img src="images/pic3.jpeg" class="slide">
             <img src="images/pic4.jpeg" class="slide">
             
-            <button onclick="changeSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: none; padding: 10px; border-radius: 50%; z-index: 5;">❮</button>
-            <button onclick="changeSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: none; padding: 10px; border-radius: 50%; z-index: 5;">❯</button>
+            <button onclick="changeSlide(-1)" style="position: absolute; left: 5px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: none; padding: 8px; border-radius: 50%; z-index: 5;">❮</button>
+            <button onclick="changeSlide(1)" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: none; padding: 8px; border-radius: 50%; z-index: 5;">❯</button>
         </div>
     </div>
 
     <div class="content-area">
         <div class="activities">
             <div class="card">
-                <h3>🤝 সামাজিক কাজ</h3>
-                <p>আমরা অসহায় মানুষের পাশে দাঁড়াই এবং এলাকার উন্নয়ন করি।</p>
+                <h3 style="font-size: 1.1rem; color: #1a5276;">🤝 সামাজিক কাজ</h3>
+                <p style="font-size: 0.9rem;">আমরা অসহায় মানুষের পাশে দাঁড়াই এবং এলাকার উন্নয়ন করি।</p>
             </div>
             <div class="card">
-                <h3>⚽ খেলাধুলা</h3>
-                <p>বার্ষিক ক্রীড়া ও বিভিন্ন প্রতিযোগিতার আয়োজন করা হয়।</p>
+                <h3 style="font-size: 1.1rem; color: #1a5276;">⚽ খেলাধুলা</h3>
+                <p style="font-size: 0.9rem;">বার্ষিক ক্রীড়া ও বিভিন্ন প্রতিযোগিতার আয়োজন করা হয়।</p>
             </div>
             <div class="card">
-                <h3>🙏 উৎসব ও পূজা</h3>
-                <p>সব উৎসব অত্যন্ত নিষ্ঠার সাথে উদযাপন করা হয়।</p>
+                <h3 style="font-size: 1.1rem; color: #1a5276;">🙏 উৎসব ও পূজা</h3>
+                <p style="font-size: 0.9rem;">সব উৎসব অত্যন্ত নিষ্ঠার সাথে উদযাপন করা হয়।</p>
             </div>
         </div>
     </div>
@@ -160,32 +160,29 @@
     </footer>
 
     <script>
-        let slideIndex = 0;
+        let slideIndex = 1;
         const slides = document.getElementsByClassName("slide");
 
-        function showSlides() {
+        function showSlides(n) {
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
             for (let i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}
             slides[slideIndex-1].style.display = "block";
-            setTimeout(showSlides, 3000);
+        }
+
+        function autoSlide() {
+            slideIndex++;
+            showSlides(slideIndex);
+            setTimeout(autoSlide, 3000);
         }
 
         function changeSlide(n) {
-            slideIndex += n - 1;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
-            if (slideIndex >= slides.length) slideIndex = 0;
-            
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slides[slideIndex].style.display = "block";
+            showSlides(slideIndex += n);
         }
 
-        // ছবি যদি গিটহাবে থেকে থাকে তবে এটি কাজ করবে
-        showSlides();
+        autoSlide();
     </script>
 </body>
 </html>
