@@ -104,18 +104,42 @@
 </head>
 <body>
 
-    <header style="background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #fff;">
-    
-    <img src="logo.jpg" alt="লোগো" style="width: 110px; height: auto; border-radius: 50%; margin-bottom: 15px; border: 3px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-    
-    <h1 style="font-family: 'Hind Siliguri', sans-serif; font-size: 3rem; margin: 0; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); letter-spacing: 1px;">
-        পল্লীশ্রী সমাজ উন্নয়ন সংঘ
-    </h1>
-    
-    <p style="font-family: 'Hind Siliguri', sans-serif; font-size: 1.2rem; margin-top: 10px; opacity: 0.9; font-weight: 400;">
-        — একতাই বল, সেবাই ধর্ম —
-    </p>
-   </header>
+    <style>
+    /* মোবাইলের জন্য বিশেষ সেটিংস */
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column !important;
+            text-align: center !important;
+        }
+        .header-logo {
+            margin-right: 0 !important;
+            margin-bottom: 15px !important;
+        }
+        .club-name {
+            font-size: 2.5rem !important; /* মোবাইলে ফন্ট একটু ছোট হবে */
+        }
+    }
+</style>
+
+<header style="background: linear-gradient(to right, #ffffff, #f0f7ff, #e3f2fd); color: #1a5276; padding: 40px 5%; border-bottom: 4px solid #1a5276;">
+    <div class="header-container" style="display: flex; align-items: center; max-width: 1200px; margin: 0 auto;">
+        
+        <div class="header-logo" style="flex: 0 0 auto; margin-right: 30px;">
+            <img src="images/logo.png" alt="লোগো" style="width: 130px; height: auto; border-radius: 50%; border: 4px solid #1a5276; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        </div>
+
+        <div style="flex: 1;">
+            <h1 class="club-name" style="font-family: 'Hind Siliguri', sans-serif; font-size: 4rem; margin: 0; font-weight: 800; color: #1a5276; line-height: 1.1;">
+                পল্লীশ্রী সমাজ উন্নয়ন সংঘ
+            </h1>
+            <p style="font-family: 'Hind Siliguri', sans-serif; font-size: 1.3rem; margin-top: 8px; color: #546e7a; font-weight: 500;">
+                — একতাই বল, সেবাই ধর্ম —
+            </p>
+        </div>
+        
+    </div>
+</header>
+
 
 
     
