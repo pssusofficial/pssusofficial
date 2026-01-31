@@ -49,16 +49,17 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // মোবাইল ড্রপ-ডাউন হ্যান্ডলার
-document.addEventListener('DOMContentLoaded', function() {
-    const dropdownToggle = document.querySelector('.dropdown > a');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    if (dropdownToggle) {
-        dropdownToggle.addEventListener('click', function(e) {
-            // যদি স্ক্রিন ছোট হয় (মোবাইল ভিউ)
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('member-toggle');
+    const menu = document.querySelector('.dropdown-menu');
+
+    if (toggle) {
+        toggle.addEventListener('click', (e) => {
+            // শুধুমাত্র মোবাইলে (৭৬৮ পিক্সেলের নিচে) এটি কাজ করবে
             if (window.innerWidth <= 768) {
-                e.preventDefault(); // মূল লিঙ্কে যাওয়া বন্ধ করবে
-                dropdownMenu.classList.toggle('show'); // মেনু দেখাবে বা লুকাবে
+                e.preventDefault(); 
+                menu.classList.toggle('active'); // active ক্লাসটি অন-অফ করবে
             }
         });
     }
