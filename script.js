@@ -47,3 +47,20 @@ window.addEventListener('DOMContentLoaded', () => {
         setInterval(() => changeSlide(1), 5000);
     }
 });
+
+// মোবাইল ড্রপ-ডাউন হ্যান্ডলার
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownToggle = document.querySelector('.dropdown > a');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(e) {
+            // যদি স্ক্রিন ছোট হয় (মোবাইল ভিউ)
+            if (window.innerWidth <= 768) {
+                e.preventDefault(); // মূল লিঙ্কে যাওয়া বন্ধ করবে
+                dropdownMenu.classList.toggle('show'); // মেনু দেখাবে বা লুকাবে
+            }
+        });
+    }
+});
+
