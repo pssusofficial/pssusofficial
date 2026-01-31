@@ -37,6 +37,11 @@ header {
     text-align: center; /* শুধু ট্যাগলাইন মাঝখানে থাকবে */
     display: block; /* এটি নিশ্চিত করবে যে ট্যাগলাইনটি পুরো লাইন জুড়ে আছে */
     width: 100%;
+    /* **********†*** */
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+    margin-left: -160px;
+    /* ******""""""""" */
 }
 
 
