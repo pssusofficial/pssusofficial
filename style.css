@@ -19,11 +19,16 @@
 
 
 html, body {
-    margin: 0; padding: 0;
-    width: 100%; overflow-x: hidden;
+    margin: 0; 
+    padding: 0;
+    width: 100%; 
+    overflow-x: hidden;
     background-color: #f9f9f9;
-    font-family: 'Segoe UI', 'Hind Siliguri', sans-serif;
+    /* NikoshFont কে সবার আগে দিন */
+    font-family: 'NikoshFont', 'Hind Siliguri', serif;
+    line-height: 1.6;
 }
+
 
 /* হেডার */
 header {
@@ -41,6 +46,7 @@ header {
 /* ****************************†********†*/
 .club-name {
     font-size: 3.5rem;
+    font-family: 'Shreyam';
     margin: 0;
     font-weight: 800;
     text-align: left; /* নাম বাম দিকেই থাকবে */
