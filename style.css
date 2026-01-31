@@ -1,5 +1,16 @@
 * { box-sizing: border-box; }
 
+/* Nikosh ফন্ট লোড করা */
+@font-face {
+    font-family: 'Nikosh';
+    src: url('fonts/Nikosh.ttf') format('truetype'); /* ফাইলটি fonts ফোল্ডারে থাকলে url('fonts/Nikosh.ttf') লিখুন */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
 html, body {
     margin: 0; padding: 0;
     width: 100%; overflow-x: hidden;
