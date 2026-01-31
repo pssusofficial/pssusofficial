@@ -128,21 +128,22 @@ header {
     /* ড্রপ-ডাউনটি ডিফল্টভাবে লুকিয়ে থাকবে */
     .dropdown-menu {
         display: none; 
-        position: static; /* মোবাইলে এটি মেনুর নিচে জায়গা করে নেবে */
+        position: relative; /* মোবাইলে অন্য এলিমেন্টকে ধাক্কা দিয়ে নিচে নামাবে */
         width: 100%;
         box-shadow: none;
         background-color: #f1f1f1;
     }
 
-    /* যখন 'show' ক্লাস যোগ হবে তখন মেনুটি দেখাবে */
-    .dropdown-menu.show {
-        display: block;
+    /* যখন active ক্লাস থাকবে তখন দেখাবে */
+    .dropdown-menu.active {
+        display: block !important;
     }
 
-    /* সদস্যবৃন্দ লিঙ্কের পাশে একটি চিহ্ন যেন ইউজার বুঝতে পারে এটি ক্লিকযোগ্য */
-    .nav-container li.dropdown > a::after {
-        content: ' ▾';
+    .nav-container {
+        flex-direction: column; /* মোবাইলে মেনুগুলো নিচে নিচে আসবে */
     }
+
+    
     /*-----------------------------------------*/
 }
 
