@@ -109,6 +109,7 @@ header {
     font-size: 1.1rem;
 }
 
+
 /* মোবাইল ভিউতে কন্ট্যাক্ট সেকশন সেন্টার করা */
 @media (max-width: 768px) {
     .contact-box {
@@ -122,6 +123,27 @@ header {
     .contact-item:last-child {
         border-bottom: none;
     }
+
+     /*----------------------------------------*/
+    /* ড্রপ-ডাউনটি ডিফল্টভাবে লুকিয়ে থাকবে */
+    .dropdown-menu {
+        display: none; 
+        position: static; /* মোবাইলে এটি মেনুর নিচে জায়গা করে নেবে */
+        width: 100%;
+        box-shadow: none;
+        background-color: #f1f1f1;
+    }
+
+    /* যখন 'show' ক্লাস যোগ হবে তখন মেনুটি দেখাবে */
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    /* সদস্যবৃন্দ লিঙ্কের পাশে একটি চিহ্ন যেন ইউজার বুঝতে পারে এটি ক্লিকযোগ্য */
+    .nav-container li.dropdown > a::after {
+        content: ' ▾';
+    }
+    /*-----------------------------------------*/
 }
 
 /*---------_------------*/
