@@ -180,3 +180,76 @@ footer { background: #2c3e50; color: white; text-align: center; padding: 30px 0;
     .dropdown-menu { position: static; width: 100%; }
     #photo-grid { column-count: 2; }
 }
+
+
+/* মেম্বার পেজ স্টাইল */
+.section-title {
+    text-align: center;
+    color: #1a5276;
+    border-bottom: 2px solid #e67e22;
+    display: inline-block;
+    width: auto;
+    margin: 40px auto 20px;
+    padding-bottom: 5px;
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.member-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    border-color: #1a5276;
+}
+
+.member-img img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f0f7ff;
+    margin-bottom: 15px;
+}
+
+.member-card h3 {
+    margin: 10px 0 5px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.designation {
+    color: #e67e22;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.member-list-simple ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 0;
+}
+
+.member-list-simple li {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border-left: 4px solid #1a5276;
+}
+
+
