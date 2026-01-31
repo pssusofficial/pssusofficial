@@ -3,11 +3,18 @@
 /* Nikosh ফন্ট লোড করা */
 @font-face {
     font-family: 'Nikosh';
-    src: url('fonts/Nikosh.ttf') format('truetype'); /* ফাইলটি fonts ফোল্ডারে থাকলে url('fonts/Nikosh.ttf') লিখুন */
+    src: url('fonts/Nikosh.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
+/* Sweet Shreyam Rupali ফন্ট লোড করা */
+@font-face {
+    font-family: 'Shreyam';
+    src: url('fonts/Li Sweet Shreyam Unicode.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 
